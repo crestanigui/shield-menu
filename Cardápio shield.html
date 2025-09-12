@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cardápio Marvel - Smash Burgers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background: #181A1B;
+            color: #F5F5F5;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1;
+            background: url('wp7637249.jpg') center center/cover no-repeat;
+            opacity: 0.18;
+            pointer-events: none;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #FFD700;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px #900;
+        }
+
+        .painel {
+            background: rgba(35,39,42,0.7);
+            border: 2px solid #B71C1C;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(183,28,28,0.15), 0 1.5px 0 #FFD700 inset;
+            margin-bottom: 40px;
+            padding: 28px 24px 16px 24px;
+        }
+
+        .painel h2 {
+            font-size: 1.4em;
+            background: linear-gradient(90deg, #B71C1C 60%, #FFD700 100%);
+            color: #FFD700;
+            padding: 12px;
+            margin: -28px -24px 28px -24px;
+            border-radius: 12px 12px 0 0;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 6px #900;
+        }
+
+        .painel-itens {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px 36px;
+        }
+
+        .item {
+            flex: 1 1 45%;
+            min-width: 280px;
+            max-width: 48%;
+            margin-bottom: 18px;
+            background: rgba(255,255,255,0.03);
+            border: 1.5px solid #FFD70033;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px #9002;
+            transition: transform 0.15s, box-shadow 0.15s, border 0.15s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            padding-bottom: 28px;
+        }
+
+        .item-title {
+            font-weight: bold;
+            color: #FFD700;
+            font-size: 1.1em;
+            margin-bottom: 4px;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 4px #900;
+            text-align: center;
+        }
+
+        .item-preco {
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 1.1em;
+            position: absolute;
+            right: 18px;
+            bottom: 8px;
+            text-shadow: 1px 1px 4px #900;
+        }
+
+        ul {
+            margin: 5px 0 10px 20px;
+            padding: 0;
+        }
+
+        .section h2 {
+            color: #FFD700;
+            margin-top: 30px;
+            text-shadow: 1px 1px 4px #900;
+        }
+        .section ul {
+            color: #FFD700;
+        }
+
+        @media (max-width: 800px) {
+            .painel-itens {
+                flex-direction: column;
+            }
+            .item {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Shield</h1>
+
+    <div class="menu">
+        <div class="painel">
+            <h2>Lanches com 1 Burger + 90g de batata</h2>
+            <div class="painel-itens">
+                <div class="item">
+                    <div class="item-title">Homem Formiga</div>
+                    <ul>
+                        <li>Pão macio de brioche</li>
+                        <li>1 smash burger Angus 130g</li>
+                        <li>Queijo cheddar</li>
+                        <li>Cebola roxa</li>
+                        <li>Bacon</li>
+                        <li>Picles</li>
+                        <li>Molho da casa</li>
+                        <span class="item-preco">R$ 26,00</span>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="item-title">Peper Potts</div>
+                    <ul>
+                        <li>Pão brioche vermelho</li>
+                        <li>1 smash burger Angus 130g</li>
+                        <li>Queijo muçarela</li>
+                        <li>Doritos</li>
+                        <li>Bacon</li>
+                        <li>Molho da casa</li>
+                        <span class="item-preco">R$ 26,00</span>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="item-title">Viúva Negra</div>
+                    <ul>
+                        <li>Pão brioche vermelho</li>
+                        <li>1 smash burger Angus 130g</li>
+                        <li>Queijo muçarela</li>
+                        <li>Bacon</li>
+                        <li>Abacaxi</li>
+                        <li>Molho da casa</li>
+                        <span class="item-preco">R$ 25,00</span>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="item-title">Jane Foster</div>
+                    <ul>
+                        <li>Pão brioche vermelho</li>
+                        <li>1 smash burger Angus 130g</li>
+                        <li>Queijo cheddar</li>
+                        <li>Anéis de cebola roxa</li>
+                        <li>Tomate</li>
+                        <li>Picles</li>
+                        <li>Molho da casa</li>
+                        <span class="item-preco">R$ 26,00</span>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="item-title">Baby Groot</div>
+                    <ul>
+                        <li>Pão brioche</li>
+                        <li>1 smash burger Angus 130g</li>
+                        <li>Queijo muçarela</li>
+                        <li>Molho da casa</li>
+                        <span class="item-preco">R$ 19,00</span>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="item-title">Nick Fury</div>
+                    <ul>
+                        <li>Pão brioche</li>
+                        <li>1 smash burger Angus 130g</li>
+                        <li>Queijo muçarela</li>
+                        <li>Bacon</li>
+                        <li>Ovo</li>
+                        <li>Molho da casa</li>
+                        <span class="item-preco">R$ 25,00</span>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="item-title">Bruce Banner</div>
+                    <ul>
+                        <li>Pão brioche</li>
+                        <li>1 smash burger Angus 130g</li>
+                        <li>Queijo muçarela</li>
+                        <li>Bacon</li>
+                        <li>Alface</li>
+                        <li>Tomate</li>
+                        <li>Molho da casa</li>
+                        <span class="item-preco">R$ 24,00</span>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="item-title">Peter Parker</div>
+                    <ul>
+                        <li>Pão brioche</li>
+                        <li>1 smash burger Angus 130g</li>
+                        <li>Queijo muçarela</li>
+                        <li>Alface</li>
+                        <li>Tomate</li>
+                        <li>Molho da casa</li>
+                        <span class="item-preco">R$ 20,00</span>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="item-title">Multi-verso da Loucura</div>
+                    <ul>
+                        <li>Pão brioche</li>
+                        <li>130g de frango empanado frito</li>
+                        <li>Queijo cheddar</li>
+                        <li>Cebola roxa</li>
+                        <li>Alface</li>
+                        <li>Tomate</li>
+                        <li>Picles</li>
+                        <li>Molho barbecue</li>
+                        <span class="item-preco">R$ 26,00</span>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="item-title">DR. Estranho</div>
+                    <ul>
+                        <li>Pão brioche</li>
+                        <li>1 smash burger Angus 130g</li>
+                        <li>Duplo queijo cheddar cremoso</li>
+                        <li>Bacon</li>
+                        <li>Ovo</li>
+                        <li>Cebola roxa</li>
+                        <li>Doritos</li>
+                        <li>Alface</li>
+                        <li>Tomate</li>
+                        <li>Molho da casa</li>
+                        <span class="item-preco">R$ 26,00</span>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="item-title">Thor</div>
+                    <ul>
+                        <li>Pão brioche</li>
+                        <li>1 smash burger Angus 130g</li>
+                        <li>Duplo queijo cheddar cremoso</li>
+                        <li>Calabresa</li>
+                        <li>Cebola caramelizada</li>
+                        <li>Picles</li>
+                        <li>Tomate</li>
+                        <li>Molho da casa</li>
+                        <span class="item-preco">R$ 26,00</span>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="painel">
+            <h2>Lanches com 2 Burgers + 90g de batata</h2>
+            <div class="painel-itens">
+                <div class="item">
+                    <div class="item-title">Homem Aranha</div>
+                    <ul>
+                        <li>Pão brioche vermelho</li>
+                        <li>2 smash burgers Angus 130g cada</li>
+                        <li>Queijo muçarela</li>
+                        <li>Ovo</li>
+                        <li>Alface</li>
+                        <li>Molho da casa</li>
+                        <span class="item-preco">R$ 30,00</span>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="item-title">Gavião Arqueiro</div>
+                    <ul>
+                        <li>Pão brioche</li>
+                        <li>2 smash burgers Angus 130g cada</li>
+                        <li>Queijo cheddar cremoso</li>
+                        <li>Calabresa</li>
+                        <li>Cebola caramelizada</li>
+                        <li>Molho da casa</li>
+                        <span class="item-preco">R$ 30,00</span>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="item-title">Homem de Ferro</div>
+                    <ul>
+                        <li>Pão brioche vermelho</li>
+                        <li>2 smash burgers Angus 130g cada</li>
+                        <li>Queijo cheddar cremoso</li>
+                        <li>Bacon</li>
+                        <li>Abacaxi grelhado</li>
+                        <li>Molho da casa</li>
+                        <span class="item-preco">R$ 30,00</span>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="item-title">Wanda Smash</div>
+                    <ul>
+                        <li>Pão brioche vermelho</li>
+                        <li>2 smash burgers Angus 130g cada</li>
+                        <li>Queijo muçarela</li>
+                        <li>Bacon</li>
+                        <li>Alface</li>
+                        <li>Molho da casa</li>
+                        <span class="item-preco">R$ 30,00</span>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="item-title">Drax</div>
+                    <ul>
+                        <li>Pão brioche vermelho</li>
+                        <li>2 smash burgers Angus 130g cada</li>
+                        <li>Duplo queijo muçarela</li>
+                        <li>Duplo bacon</li>
+                        <li>Molho da casa</li>
+                        <span class="item-preco">R$ 30,00</span>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="item-title">Capitão América</div>
+                    <ul>
+                        <li>Pão brioche</li>
+                        <li>2 smash burgers Angus 130g cada</li>
+                        <li>Queijo muçarela</li>
+                        <li>Bacon</li>
+                        <li>Cebola caramelizada</li>
+                        <li>Picles</li>
+                        <li>Molho da casa</li>
+                        <span class="item-preco">R$ 33,00</span>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="item-title">Hulk Smash</div>
+                    <ul>
+                        <li>Pão brioche</li>
+                        <li>2 smash burgers Angus 130g cada</li>
+                        <li>Duplo queijo cheddar cremoso</li>
+                        <li>Bacon</li>
+                        <li>Cebola caramelizada</li>
+                        <li>Tomate</li>
+                        <li>Molho da casa</li>
+                        <span class="item-preco">R$ 35,00</span>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="item-title">Thanos Com Tudo</div>
+                    <ul>
+                        <li>Pão brioche</li>
+                        <li>2 smash burgers Angus 130g cada</li>
+                        <li>Duplo queijo cheddar cremoso</li>
+                        <li>Bacon</li>
+                        <li>Calabresa</li>
+                        <li>Ovo</li>
+                        <li>Cebola roxa</li>
+                        <li>Alface</li>
+                        <li>Molho da casa</li>
+                        <span class="item-preco">R$ 38,00</span>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Observações</h2>
+            <ul>
+                <li>Pão brioche vermelho aparece em opções selecionadas.</li>
+                <li>Smash burgers com carne Angus de 130g por unidade.</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,247 @@
+{
+  "lanches1": [
+    {
+      "nome": "Homem Formiga",
+      "ingredientes": [
+        "Pão macio de brioche",
+        "1 smash burger Angus 130g",
+        "Queijo cheddar",
+        "Cebola roxa",
+        "Bacon",
+        "Picles",
+        "Molho da casa"
+      ],
+      "preco": "R$ 26,00"
+    },
+    {
+      "nome": "Peper Potts",
+      "ingredientes": [
+        "Pão brioche vermelho",
+        "1 smash burger Angus 130g",
+        "Queijo muçarela",
+        "Doritos",
+        "Bacon",
+        "Molho da casa"
+      ],
+      "preco": "R$ 26,00"
+    },
+    {
+      "nome": "Viúva Negra",
+      "ingredientes": [
+        "Pão brioche vermelho",
+        "1 smash burger Angus 130g",
+        "Queijo muçarela",
+        "Bacon",
+        "Abacaxi",
+        "Molho da casa"
+      ],
+      "preco": "R$ 25,00"
+    },
+    {
+      "nome": "Jane Foster",
+      "ingredientes": [
+        "Pão brioche vermelho",
+        "1 smash burger Angus 130g",
+        "Queijo cheddar",
+        "Anéis de cebola roxa",
+        "Tomate",
+        "Picles",
+        "Molho da casa"
+      ],
+      "preco": "R$ 26,00"
+    },
+    {
+      "nome": "Baby Groot com batata",
+      "ingredientes": [
+        "Pão brioche",
+        "1 smash burger Angus 130g",
+        "Queijo muçarela",
+        "Molho da casa"
+      ],
+      "preco": "R$ 19,00"
+    },
+    {
+      "nome": "Nick Fury com batata",
+      "ingredientes": [
+        "Pão brioche",
+        "1 smash burger Angus 130g",
+        "Queijo muçarela",
+        "Bacon",
+        "Ovo",
+        "Molho da casa"
+      ],
+      "preco": "R$ 25,00"
+    },
+    {
+      "nome": "Bruce Banner com batata",
+      "ingredientes": [
+        "Pão brioche",
+        "1 smash burger Angus 130g",
+        "Queijo muçarela",
+        "Bacon",
+        "Alface",
+        "Tomate",
+        "Molho da casa"
+      ],
+      "preco": "R$ 24,00"
+    },
+    {
+      "nome": "Peter Parker com batata",
+      "ingredientes": [
+        "Pão brioche",
+        "1 smash burger Angus 130g",
+        "Queijo muçarela",
+        "Alface",
+        "Tomate",
+        "Molho da casa"
+      ],
+      "preco": "R$ 20,00"
+    },
+    {
+      "nome": "Multi-verso da Loucura",
+      "ingredientes": [
+        "Pão brioche",
+        "130g de frango empanado frito",
+        "Queijo cheddar",
+        "Cebola roxa",
+        "Alface",
+        "Tomate",
+        "Picles",
+        "Molho barbecue"
+      ],
+      "preco": "R$ 26,00"
+    },
+    {
+      "nome": "DR. Estranho",
+      "ingredientes": [
+        "Pão brioche",
+        "1 smash burger Angus 130g",
+        "Duplo queijo cheddar cremoso",
+        "Bacon",
+        "Ovo",
+        "Cebola roxa",
+        "Doritos",
+        "Alface",
+        "Tomate",
+        "Molho da casa"
+      ],
+      "preco": "R$ 26,00"
+    },
+    {
+      "nome": "Thor",
+      "ingredientes": [
+        "Pão brioche",
+        "1 smash burger Angus 130g",
+        "Duplo queijo cheddar cremoso",
+        "Calabresa",
+        "Cebola caramelizada",
+        "Picles",
+        "Tomate",
+        "Molho da casa"
+      ],
+      "preco": "R$ 26,00"
+    }
+  ],
+  "lanches2": [
+    {
+      "nome": "Homem Aranha",
+      "ingredientes": [
+        "Pão brioche vermelho",
+        "2 smash burgers Angus 130g cada",
+        "Queijo muçarela",
+        "Ovo",
+        "Alface",
+        "Molho da casa"
+      ],
+      "preco": "R$ 30,00"
+    },
+    {
+      "nome": "Gavião Arqueiro",
+      "ingredientes": [
+        "Pão brioche",
+        "2 smash burgers Angus 130g cada",
+        "Queijo cheddar cremoso",
+        "Calabresa",
+        "Cebola caramelizada",
+        "Molho da casa"
+      ],
+      "preco": "R$ 30,00"
+    },
+    {
+      "nome": "Homem de Ferro",
+      "ingredientes": [
+        "Pão brioche vermelho",
+        "2 smash burgers Angus 130g cada",
+        "Queijo cheddar cremoso",
+        "Bacon",
+        "Abacaxi grelhado",
+        "Molho da casa"
+      ],
+      "preco": "R$ 30,00"
+    },
+    {
+      "nome": "Wanda Smash",
+      "ingredientes": [
+        "Pão brioche vermelho",
+        "2 smash burgers Angus 130g cada",
+        "Queijo muçarela",
+        "Bacon",
+        "Alface",
+        "Molho da casa"
+      ],
+      "preco": "R$ 30,00"
+    },
+    {
+      "nome": "Drax",
+      "ingredientes": [
+        "Pão brioche vermelho",
+        "2 smash burgers Angus 130g cada",
+        "Duplo queijo muçarela",
+        "Duplo bacon",
+        "Molho da casa"
+      ],
+      "preco": "R$ 30,00"
+    },
+    {
+      "nome": "Capitão América",
+      "ingredientes": [
+        "Pão brioche",
+        "2 smash burgers Angus 130g cada",
+        "Queijo muçarela",
+        "Bacon",
+        "Cebola caramelizada",
+        "Picles",
+        "Molho da casa"
+      ],
+      "preco": "R$ 33,00"
+    },
+    {
+      "nome": "Hulk Smash",
+      "ingredientes": [
+        "Pão brioche",
+        "2 smash burgers Angus 130g cada",
+        "Duplo queijo cheddar cremoso",
+        "Bacon",
+        "Cebola caramelizada",
+        "Tomate",
+        "Molho da casa"
+      ],
+      "preco": "R$ 35,00"
+    },
+    {
+      "nome": "Thanos Com Tudo",
+      "ingredientes": [
+        "Pão brioche",
+        "2 smash burgers Angus 130g cada",
+        "Duplo queijo cheddar cremoso",
+        "Bacon",
+        "Calabresa",
+        "Ovo",
+        "Cebola roxa",
+        "Alface",
+        "Molho da casa"
+      ],
+      "preco": "R$ 38,00"
+    }
+  ]
+}
