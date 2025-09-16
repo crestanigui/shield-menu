@@ -243,5 +243,79 @@
       ],
       "preco": "R$ 38,00"
     }
+  ],
+  "adicionais": [
+    {
+      "nome": "Picles",
+      "preco": "R$ 1,00"
+    },
+    {
+      "nome": "Smash burger",
+      "preco": "R$ 5,00"
+    },
+    {
+      "nome": "Queijo cheddar",
+      "preco": "R$ 3,00"
+    },
+    {
+      "nome": "Queijo muçarela",
+      "preco": "R$ 3,00"
+    },
+    {
+      "nome": "Bacon",
+      "preco": "R$ 4,00"
+    },
+    {
+      "nome": "Ovo",
+      "preco": "R$ 2,50"
+    },
+    {
+      "nome": "Cebola roxa",
+      "preco": "R$ 1,50"
+    },
+    {
+      "nome": "Cebola caramelizada",
+      "preco": "R$ 2,00"
+    },
+    {
+      "nome": "Alface",
+      "preco": "R$ 1,00"
+    },
+    {
+      "nome": "Tomate",
+      "preco": "R$ 1,50"
+    },
+    {
+      "nome": "Abacaxi",
+      "preco": "R$ 2,00"
+    },
+    {
+      "nome": "Abacaxi grelhado",
+      "preco": "R$ 2,50"
+    },
+    {
+      "nome": "Calabresa",
+      "preco": "R$ 3,50"
+    },
+    {
+      "nome": "Doritos",
+      "preco": "R$ 2,00"
+    },
+    {
+      "nome": "Anéis de cebola roxa",
+      "preco": "R$ 2,50"
+    },
+    {
+      "nome": "Frango empanado frito 130g",
+      "preco": "R$ 6,00"
+    },
+    {
+      "nome": "Molho da casa",
+      "preco": "R$ 1,00"
+    },
+    {
+      "nome": "Molho barbecue",
+      "preco": "R$ 1,50"
+    }
   ]
 }
