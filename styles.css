@@ -1,0 +1,374 @@
+/* Shield Hamburgueria - Avengers Theme Styles */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap');
+
+/* CSS Variables for consistent theming */
+:root {
+    --primary-red: #B71C1C;
+    --primary-gold: #FFD700;
+    --dark-bg: #0A0A0A;
+    --card-bg: rgba(20, 25, 30, 0.9);
+    --text-light: #F5F5F5;
+    --text-muted: #B0B0B0;
+    --shadow-red: rgba(183, 28, 28, 0.3);
+    --shadow-gold: rgba(255, 215, 0, 0.2);
+    --gradient-primary: linear-gradient(135deg, var(--primary-red) 0%, #8B0000 50%, var(--primary-red) 100%);
+    --gradient-gold: linear-gradient(135deg, var(--primary-gold) 0%, #DAA520 50%, var(--primary-gold) 100%);
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: var(--dark-bg);
+    color: var(--text-light);
+    line-height: 1.6;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Simplified background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: url('wp7637249.jpg') center center/cover no-repeat;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+/* Container */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+.header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 40px 0;
+}
+
+.main-title {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    color: var(--primary-gold);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+/* Filter Styles */
+.filter-container {
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 30px;
+}
+
+.filter-input {
+    width: 100%;
+    padding: 15px 50px 15px 20px;
+    font-size: 1.1rem;
+    font-family: 'Roboto', sans-serif;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--primary-red);
+    border-radius: 25px;
+    color: var(--text-light);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.filter-input::placeholder {
+    color: var(--text-muted);
+}
+
+.filter-input:focus {
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.clear-button {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    display: none;
+}
+
+.clear-button:hover {
+    color: var(--primary-gold);
+    background: rgba(255, 215, 0, 0.1);
+}
+
+.clear-button.show {
+    display: block;
+}
+
+/* Hidden items during filtering */
+.item.hidden {
+    display: none;
+}
+
+.painel.hidden {
+    display: none;
+}
+
+/* No results message */
+.no-results {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    display: none;
+}
+
+.no-results.show {
+    display: block;
+}
+
+/* Panel Styles */
+.painel {
+    background: var(--card-bg);
+    border: 2px solid var(--primary-red);
+    border-radius: 15px;
+    margin-bottom: 40px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.painel-header {
+    background: var(--gradient-primary);
+    padding: 20px 30px;
+}
+
+.painel-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-gold);
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-transform: uppercase;
+}
+
+/* Items Grid */
+.painel-itens {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    padding: 30px;
+}
+
+/* Item Cards */
+.item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.item:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-gold);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.item-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-gold);
+    text-align: center;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.item-ingredients {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.item-ingredients li {
+    padding: 5px 0;
+    padding-left: 20px;
+    position: relative;
+    color: var(--text-light);
+    font-weight: 400;
+}
+
+.item-ingredients li::before {
+    content: '⚡';
+    position: absolute;
+    left: 0;
+    color: var(--primary-gold);
+    font-size: 0.9rem;
+}
+
+.item-preco {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-family: 'Orbitron', monospace;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-gold);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    padding: 8px 15px;
+    background: rgba(183, 28, 28, 0.2);
+    border-radius: 25px;
+    border: 1px solid var(--primary-gold);
+}
+
+/* Adicionais specific styling */
+.adicionais-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    min-height: 80px;
+}
+
+.adicionais-item .item-title {
+    margin-bottom: 0;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.adicionais-item .item-preco {
+    position: static;
+    margin-left: 15px;
+}
+
+/* Observações Section */
+.section {
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 40px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.section-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.8rem;
+    color: var(--primary-gold);
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.section ul {
+    list-style: none;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section li {
+    padding: 10px 0;
+    padding-left: 30px;
+    position: relative;
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.section li::before {
+    content: '🛡️';
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .painel-itens {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    .item {
+        padding: 20px;
+    }
+    
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .painel-title {
+        font-size: 1.2rem;
+    }
+    
+    .item-title {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .painel-itens {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+    
+    .item {
+        padding: 15px;
+    }
+    
+    .item-preco {
+        position: static;
+        margin-top: 15px;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .adicionais-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .adicionais-item .item-preco {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+/* Removed heavy animations for better performance */
