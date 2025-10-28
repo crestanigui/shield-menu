@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const cartTotalValue = document.getElementById('cart-total-value');
     const clearCartBtn = document.getElementById('clear-cart-btn');
     const finalizeOrderBtn = document.getElementById('finalize-order-btn');
-    const deliveryCheckbox = document.getElementById('delivery-checkbox');
+    const deliveryRadio = document.getElementById('delivery-radio');
+    const pickupRadio = document.getElementById('pickup-radio');
 
     // WhatsApp number (replace with your actual number)
     const WHATSAPP_NUMBER = '554699282707';
-    const DELIVERY_FEE = 10.00;
 
     function filterBurgers() {
         const searchTerm = filterInput.value.toLowerCase().trim();
@@ -165,11 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
             cartItemsContainer.appendChild(cartItem);
         });
 
-        // Add delivery fee if checkbox is checked
-        if (deliveryCheckbox.checked) {
-            total += DELIVERY_FEE;
-        }
-
+        // No delivery fee added to subtotal - will be combined via WhatsApp
         cartTotalValue.textContent = `R$ ${total.toFixed(2)}`;
 
         // Add event listeners to quantity buttons
@@ -238,19 +234,14 @@ document.addEventListener('DOMContentLoaded', function() {
             message += '%0A';
         });
 
-        // Add delivery fee if checked
-        const isDelivery = deliveryCheckbox.checked;
-        if (isDelivery) {
-            message += `*Taxa de entrega: R$ ${DELIVERY_FEE.toFixed(2)}*%0A%0A`;
-            total += DELIVERY_FEE;
-        }
-
-        message += `*Total: R$ ${total.toFixed(2)}*`;
+        message += `*Subtotal: R$ ${total.toFixed(2)}*%0A%0A`;
         
+        // Add delivery type
+        const isDelivery = deliveryRadio.checked;
         if (isDelivery) {
-            message += '%0A%0A_🚚 Para entrega_';
+            message += '_🚚 Para entrega (taxa a combinar)_';
         } else {
-            message += '%0A%0A_🏪 Para retirada_';
+            message += '_🏪 Para retirada_';
         }
 
         const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
@@ -301,7 +292,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
     clearCartBtn.addEventListener('click', clearCart);
     finalizeOrderBtn.addEventListener('click', finalizeOrder);
-    
-    // Update total when delivery checkbox changes
-    deliveryCheckbox.addEventListener('change', updateCart);
 });

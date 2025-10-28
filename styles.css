@@ -198,6 +198,7 @@ body::before {
     border: 1px solid rgba(255, 215, 0, 0.2);
     border-radius: 12px;
     padding: 20px;
+    padding-bottom: 70px;
     position: relative;
     transition: transform 0.2s ease, border-color 0.2s ease;
 }
@@ -242,7 +243,7 @@ body::before {
 
 .item-preco {
     position: absolute;
-    bottom: 15px;
+    bottom: 70px;
     right: 20px;
     font-family: 'Orbitron', monospace;
     font-size: 1.4rem;
@@ -375,8 +376,11 @@ body::before {
 
 /* Add to Cart Button */
 .add-to-cart-btn {
-    width: 100%;
-    margin-top: 15px;
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    right: 20px;
+    width: calc(100% - 40px);
     padding: 12px 20px;
     font-family: 'Orbitron', monospace;
     font-size: 0.95rem;
@@ -433,34 +437,66 @@ body::before {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 215, 0, 0.2);
     border-radius: 10px;
-    text-align: center;
 }
 
-.delivery-checkbox {
+.delivery-option h4 {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.1rem;
+    color: var(--primary-gold);
+    margin-bottom: 15px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.delivery-radio-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.delivery-radio {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
+    padding: 12px 20px;
     font-family: 'Roboto', sans-serif;
     font-size: 1.1rem;
     color: var(--text-light);
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: 8px;
     cursor: pointer;
     user-select: none;
+    transition: all 0.3s ease;
 }
 
-.delivery-checkbox input[type="checkbox"] {
-    width: 24px;
-    height: 24px;
+.delivery-radio:hover {
+    border-color: var(--primary-gold);
+    background: rgba(255, 215, 0, 0.1);
+}
+
+.delivery-radio input[type="radio"] {
+    width: 20px;
+    height: 20px;
     cursor: pointer;
     accent-color: var(--primary-gold);
 }
 
-.delivery-checkbox span {
-    font-weight: 500;
-    letter-spacing: 0.5px;
+.delivery-radio input[type="radio"]:checked + span {
+    color: var(--primary-gold);
+    font-weight: 700;
 }
 
-.delivery-checkbox:hover span {
-    color: var(--primary-gold);
+.delivery-radio:has(input[type="radio"]:checked) {
+    border-color: var(--primary-gold);
+    background: rgba(255, 215, 0, 0.15);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.delivery-radio span {
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
 .cart-item {
@@ -605,6 +641,14 @@ body::before {
 
 .cart-total span {
     color: var(--primary-gold);
+}
+
+.delivery-note {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+    font-style: italic;
+    text-align: center;
 }
 
 .cart-actions {
