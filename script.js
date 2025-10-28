@@ -239,9 +239,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add delivery type
         const isDelivery = deliveryRadio.checked;
         if (isDelivery) {
-            message += '_🚚 Para entrega (taxa a combinar)_';
+            message += '_Para entrega (taxa a combinar)_';
         } else {
-            message += '_🏪 Para retirada_';
+            message += '_Para retirada_';
         }
 
         const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
