@@ -187,11 +187,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Build adicionais checkboxes HTML
             let adicionaisHTML = '<div class="adicionais-section">';
-            adicionaisHTML += '<button class="adicionais-toggle" data-cart-index="${index}" type="button">';
+            adicionaisHTML += `<button class="adicionais-toggle" data-cart-index="${index}" type="button">`;
             adicionaisHTML += '<span class="adicionais-toggle-text">Vai um adicional?</span>';
             adicionaisHTML += '<span class="adicionais-toggle-icon">▼</span>';
             adicionaisHTML += '</button>';
-            adicionaisHTML += '<div class="adicionais-content" data-cart-index="${index}">';
+            adicionaisHTML += `<div class="adicionais-content" data-cart-index="${index}">`;
             adicionaisHTML += '<div class="adicionais-grid">';
             
             ADICIONAIS.forEach(adicional => {
