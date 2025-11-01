@@ -22,6 +22,28 @@ document.addEventListener('DOMContentLoaded', function() {
     // WhatsApp number (replace with your actual number)
     const WHATSAPP_NUMBER = '554699282707';
 
+    // Adicionais list with prices
+    const ADICIONAIS = [
+        { name: 'Smash burger', price: 5.00 },
+        { name: 'Batata', price: 5.00 },
+        { name: 'Picles', price: 2.00 },
+        { name: 'Queijo cheddar', price: 2.00 },
+        { name: 'Queijo muçarela', price: 2.00 },
+        { name: 'Bacon', price: 2.00 },
+        { name: 'Ovo', price: 2.00 },
+        { name: 'Cebola roxa', price: 2.00 },
+        { name: 'Cebola caramelizada', price: 2.00 },
+        { name: 'Alface', price: 2.00 },
+        { name: 'Tomate', price: 2.00 },
+        { name: 'Abacaxi', price: 2.00 },
+        { name: 'Abacaxi grelhado', price: 2.00 },
+        { name: 'Calabresa', price: 2.00 },
+        { name: 'Doritos', price: 2.00 },
+        { name: 'Anéis de cebola roxa', price: 2.00 },
+        { name: 'Molho da casa', price: 2.00 },
+        { name: 'Molho barbecue', price: 2.00 }
+    ];
+
     function filterBurgers() {
         const searchTerm = filterInput.value.toLowerCase().trim();
         let hasVisibleResults = false;
@@ -92,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add to cart functionality
     function addToCart(name, price) {
-        const existingItem = cart.find(item => item.name === name);
+        const existingItem = cart.find(item => item.name === name && item.adicionais.length === 0);
         
         if (existingItem) {
             existingItem.quantity += 1;
@@ -101,7 +123,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 name: name,
                 price: parseFloat(price),
                 quantity: 1,
-                observation: ''
+                observation: '',
+                adicionais: [] // Array to store selected adicionais
             });
         }
         
@@ -132,20 +155,77 @@ document.addEventListener('DOMContentLoaded', function() {
         cart[index].observation = observation;
     }
 
+    function toggleAdicional(cartIndex, adicionalName, adicionalPrice) {
+        const item = cart[cartIndex];
+        const existingIndex = item.adicionais.findIndex(a => a.name === adicionalName);
+        
+        if (existingIndex >= 0) {
+            // Remove adicional
+            item.adicionais.splice(existingIndex, 1);
+        } else {
+            // Add adicional
+            item.adicionais.push({ name: adicionalName, price: adicionalPrice });
+        }
+        
+        updateCart();
+    }
+
+    function calculateItemTotal(item) {
+        let total = item.price * item.quantity;
+        const adicionaisTotal = item.adicionais.reduce((sum, a) => sum + a.price, 0);
+        total += adicionaisTotal * item.quantity;
+        return total;
+    }
+
     function updateCart() {
         cartItemsContainer.innerHTML = '';
         let total = 0;
 
         cart.forEach((item, index) => {
-            const itemTotal = item.price * item.quantity;
+            const itemTotal = calculateItemTotal(item);
             total += itemTotal;
+
+            // Build adicionais checkboxes HTML
+            let adicionaisHTML = '<div class="adicionais-section">';
+            adicionaisHTML += '<button class="adicionais-toggle" data-cart-index="${index}" type="button">';
+            adicionaisHTML += '<span class="adicionais-toggle-text">Vai um adicional?</span>';
+            adicionaisHTML += '<span class="adicionais-toggle-icon">▼</span>';
+            adicionaisHTML += '</button>';
+            adicionaisHTML += '<div class="adicionais-content" data-cart-index="${index}">';
+            adicionaisHTML += '<div class="adicionais-grid">';
+            
+            ADICIONAIS.forEach(adicional => {
+                const isChecked = item.adicionais.some(a => a.name === adicional.name);
+                adicionaisHTML += `
+                    <label class="adicional-checkbox">
+                        <input type="checkbox" 
+                               class="adicional-input" 
+                               data-cart-index="${index}" 
+                               data-name="${adicional.name}" 
+                               data-price="${adicional.price}"
+                               ${isChecked ? 'checked' : ''}>
+                        <span class="adicional-label">${adicional.name} (+R$ ${adicional.price.toFixed(2)})</span>
+                    </label>
+                `;
+            });
+            
+            adicionaisHTML += '</div></div></div>';
+
+            // Build selected adicionais summary
+            let adicionaisSummary = '';
+            if (item.adicionais.length > 0) {
+                adicionaisSummary = '<div class="selected-adicionais">';
+                adicionaisSummary += '<strong>Selecionados:</strong> ';
+                adicionaisSummary += item.adicionais.map(a => a.name).join(', ');
+                adicionaisSummary += '</div>';
+            }
 
             const cartItem = document.createElement('div');
             cartItem.className = 'cart-item';
             cartItem.innerHTML = `
                 <div class="cart-item-header">
                     <h4 class="cart-item-name">${item.name}</h4>
-                    <span class="cart-item-price">R$ ${item.price.toFixed(2)}</span>
+                    <span class="cart-item-price">Base: R$ ${item.price.toFixed(2)}</span>
                 </div>
                 <div class="cart-item-controls">
                     <div class="quantity-controls">
@@ -155,6 +235,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                     <button class="remove-btn" data-index="${index}">Remover</button>
                 </div>
+                ${adicionaisHTML}
+                ${adicionaisSummary}
                 <div class="cart-item-observation">
                     <label>Observação:</label>
                     <textarea class="observation-input" data-index="${index}" placeholder="Ex: sem cebola, ponto da carne...">${item.observation}</textarea>
@@ -192,6 +274,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateObservation(parseInt(this.dataset.index), this.value);
             });
         });
+
+        // Add event listeners to adicional checkboxes
+        document.querySelectorAll('.adicional-input').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const cartIndex = parseInt(this.dataset.cartIndex);
+                const adicionalName = this.dataset.name;
+                const adicionalPrice = parseFloat(this.dataset.price);
+                toggleAdicional(cartIndex, adicionalName, adicionalPrice);
+            });
+        });
+
+        // Add event listeners to adicionais toggle buttons
+        document.querySelectorAll('.adicionais-toggle').forEach(button => {
+            button.addEventListener('click', function() {
+                const cartIndex = this.dataset.cartIndex;
+                const content = document.querySelector(`.adicionais-content[data-cart-index="${cartIndex}"]`);
+                const icon = this.querySelector('.adicionais-toggle-icon');
+                
+                content.classList.toggle('expanded');
+                icon.classList.toggle('rotated');
+            });
+        });
     }
 
     function showPedidoSection() {
@@ -217,18 +321,27 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        let message = '*Pedido - Shield Hamburgueria*%0A%0A';
+        let message = 'Olá, gostaria de pedir: %0A%0A';
         let total = 0;
 
         cart.forEach(item => {
-            const itemTotal = item.price * item.quantity;
+            const itemTotal = calculateItemTotal(item);
             total += itemTotal;
             
-            message += `*${item.quantity}x ${item.name}*%0A`;
-            message += `R$ ${item.price.toFixed(2)} cada = R$ ${itemTotal.toFixed(2)}%0A`;
+            message += `${item.quantity}x ${item.name}%0A`;
+            
+            // Add adicionais to message
+            if (item.adicionais.length > 0) {
+                message += `_Adicionais:_%0A`;
+                item.adicionais.forEach(adicional => {
+                    message += `  • ${adicional.name}%0A`;
+                });
+            }
+            
+            message += `= R$ ${itemTotal.toFixed(2)}%0A`;
             
             if (item.observation) {
-                message += `_Obs: ${item.observation}__%0A`;
+                message += `*Obs: ${item.observation}*%0A`;
             }
             
             message += '%0A';
@@ -239,9 +352,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add delivery type
         const isDelivery = deliveryRadio.checked;
         if (isDelivery) {
-            message += '_Para entrega (taxa a combinar)_';
+            message += 'Para entrega';
         } else {
-            message += '_Para retirada_';
+            message += 'Para retirada';
         }
 
         const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;

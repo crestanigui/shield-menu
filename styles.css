@@ -589,6 +589,123 @@ body::before {
     transform: translateY(-2px);
 }
 
+.adicionais-section {
+    margin: 20px 0;
+    background: rgba(255, 215, 0, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.adicionais-toggle {
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 215, 0, 0.08);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Orbitron', monospace;
+    font-size: 1rem;
+    color: var(--primary-gold);
+    letter-spacing: 0.5px;
+}
+
+.adicionais-toggle:hover {
+    background: rgba(255, 215, 0, 0.15);
+}
+
+.adicionais-toggle-text {
+    font-weight: 600;
+}
+
+.adicionais-toggle-icon {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.adicionais-toggle-icon.rotated {
+    transform: rotate(180deg);
+}
+
+.adicionais-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding: 0 15px;
+}
+
+.adicionais-content.expanded {
+    max-height: 1000px;
+    padding: 15px;
+}
+
+.adicionais-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.adicional-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 215, 0, 0.15);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.adicional-checkbox:hover {
+    background: rgba(255, 215, 0, 0.08);
+    border-color: var(--primary-gold);
+}
+
+.adicional-checkbox:has(input:checked) {
+    background: rgba(255, 215, 0, 0.15);
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.2);
+}
+
+.adicional-input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--primary-gold);
+    flex-shrink: 0;
+}
+
+.adicional-label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.3;
+}
+
+.adicional-checkbox:has(input:checked) .adicional-label {
+    color: var(--primary-gold);
+    font-weight: 500;
+}
+
+.selected-adicionais {
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(183, 28, 28, 0.1);
+    border-left: 3px solid var(--primary-gold);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.selected-adicionais strong {
+    color: var(--primary-gold);
+}
+
 .cart-item-observation {
     margin-bottom: 15px;
 }
@@ -720,6 +837,10 @@ body::before {
     .finalize-order-btn {
         max-width: 100%;
     }
+
+    .adicionais-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 480px) {
@@ -737,5 +858,17 @@ body::before {
 
     .cart-total h3 {
         font-size: 1.4rem;
+    }
+
+    .adicionais-section {
+        padding: 10px;
+    }
+
+    .adicional-checkbox {
+        padding: 6px 10px;
+    }
+
+    .adicional-label {
+        font-size: 0.85rem;
     }
 }
