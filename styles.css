@@ -352,17 +352,28 @@ body::before {
     
     .item {
         padding: 15px;
-        padding-bottom: 90px;
+        padding-bottom: 110px;
     }
     
     .item-preco {
         position: absolute;
-        bottom: 60px;
+        bottom: 70px;
         left: 15px;
         right: 15px;
         margin-top: 0;
         text-align: center;
         width: auto;
+        font-size: 1.2rem;
+        padding: 6px 12px;
+    }
+    
+    .add-to-cart-btn {
+        bottom: 15px;
+        left: 15px;
+        right: 15px;
+        width: calc(100% - 30px);
+        padding: 10px 15px;
+        font-size: 0.85rem;
     }
     
     .adicionais-item {
