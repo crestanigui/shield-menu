@@ -24,24 +24,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Adicionais list with prices
     const ADICIONAIS = [
-        { name: 'Smash burger', price: 5.00 },
+        { name: 'Smash burger', price: 7.00 },
         { name: 'Batata', price: 5.00 },
-        { name: 'Picles', price: 2.00 },
-        { name: 'Queijo cheddar', price: 2.00 },
-        { name: 'Queijo muçarela', price: 2.00 },
-        { name: 'Bacon', price: 2.00 },
+        { name: 'Picles', price: 3.00 },
+        { name: 'Bacon', price: 3.00 },
         { name: 'Ovo', price: 2.00 },
         { name: 'Cebola roxa', price: 2.00 },
-        { name: 'Cebola caramelizada', price: 2.00 },
-        { name: 'Alface', price: 2.00 },
+        { name: 'Cebola caramelizada', price: 3.00 },
+        { name: 'Alface', price: 1.00 },
         { name: 'Tomate', price: 2.00 },
         { name: 'Abacaxi', price: 2.00 },
-        { name: 'Abacaxi grelhado', price: 2.00 },
-        { name: 'Calabresa', price: 2.00 },
+        { name: 'Calabresa', price: 3.00 },
         { name: 'Doritos', price: 2.00 },
-        { name: 'Anéis de cebola roxa', price: 2.00 },
-        { name: 'Molho da casa', price: 2.00 },
-        { name: 'Molho barbecue', price: 2.00 }
+        { name: 'Molho da casa', price: 3.00 },
+        { name: 'Ketchup', price: 3.00 }
     ];
 
     function filterBurgers() {
